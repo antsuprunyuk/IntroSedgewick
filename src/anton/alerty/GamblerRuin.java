@@ -12,7 +12,7 @@ public class GamblerRuin {
 		for (int i = 0; i < T; i++) {
 			int cash = stake;
 			while (cash > 0 && cash < goal) {
-				if (Math.random() < 0.5) {
+				if (Math.random() < 0.499) {
 					cash++;
 				} else {
 					cash--;
