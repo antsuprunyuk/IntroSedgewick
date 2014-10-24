@@ -3,25 +3,19 @@ package anton.alerty;
 public class Testing2 {
 
 	public static void main(String[] args) {
-		int d = Integer.parseInt(args[0]);
-		int v = 1; //power of 2
-		
-		//finding the highest power of 2
-		while (v <= d/2) {
-			v *= 2;
-		}
-		System.out.println(d);
-		while (d > 0) {
-			//System.out.println(d + "  " + v);
-			if (v <= d) {
-				System.out.print("1");
-				d -= v;
+		double x, y;
+		int count = 0;
+		final int T = 100000;
+		for (int i = 0; i < T; i++) {
+			x = 2 * Math.random();
+			y = 2 * Math.random();
+			if ((x > 0) && (x < 1) && (y > 0) && (y < 1)) {
+				System.out.println (x + " " + y + "  condition (0 < x < 1) & (0 < y < 1) is accomplished");
+				count++;
 			} else {
-				System.out.print("0");
-				
+				System.out.println(x + " " + y + " condition failed");
 			}
-			v /= 2;
 		}
+		System.out.println("% of succed is about" + 100.0 * count/T);
 	}
-
 }
