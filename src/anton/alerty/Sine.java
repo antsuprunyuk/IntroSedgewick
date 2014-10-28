@@ -14,5 +14,4 @@ public class Sine {
 		}
 		System.out.println( "sin x = " + sum + "   with java Math = " + Math.sin(x));
 	}
-
 }
