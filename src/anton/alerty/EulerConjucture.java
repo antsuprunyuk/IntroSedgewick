@@ -5,7 +5,7 @@ public class EulerConjucture {
 	public static void main(String[] args) {
 		long N = Long.parseLong(args[0]);
 		long a5= 0, b5 = 0, c5 = 0, d5 = 0, e5 = 0;
-metka:	for (long e = 1000; e5 <= N; e++) {
+metka:	for (long e = 100; e5 <= N; e++) {
 			if (e % 100 == 0) {System.out.println(e);}
 			long sum = 0;
 			e5 = e*e*e*e*e;
