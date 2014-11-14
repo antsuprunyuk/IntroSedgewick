@@ -1,5 +1,7 @@
 package anton.alerty.inputandoutput;
 
+//to execute the program type in terminal from ../IntroductionSedgewick/bin/   'java anton.alerty.inputandoutput.PlotFilter.java < USA.txt'
+//USA.txt should be placed in   '../bin/' 
 public class PlotFilter {
 
 	public static void main(String[] args) {
