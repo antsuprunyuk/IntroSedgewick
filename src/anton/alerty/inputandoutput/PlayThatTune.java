@@ -21,11 +21,13 @@ public class PlayThatTune {
 				a[i] = volume*Math.sin(2 * Math.PI * hz * i / sps);
 			
 			}
+			/*
 			for(int i = 4; i <= hzA/2; i += 4) {
 				StdDraw.line(1.0*(i-4)/sps, a[i-4], 1.0*(i)/sps, a[i]);
 				StdDraw.show(5);
 				//StdDraw.clear();
-			}		
+			}
+			*/		
 			StdAudio.play(a);
 		}
 	}

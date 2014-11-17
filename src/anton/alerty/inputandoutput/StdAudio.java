@@ -143,6 +143,7 @@ public final class StdAudio {
         URL url = null;
         try {
             File file = new File(filename);
+            System.out.println(filename);
             if (file.canRead()) url = file.toURI().toURL();
         }
         catch (MalformedURLException e) { e.printStackTrace(); }
