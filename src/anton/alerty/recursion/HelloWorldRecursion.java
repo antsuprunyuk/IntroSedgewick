@@ -33,7 +33,7 @@ public class HelloWorldRecursion {
 		return gcd(q, p % q);
 	}
 	public static void main(String[] args) {
-		System.out.println(factorial(20, 0));
+		System.out.println(factorial(1, 0));
 		System.out.println(harm(10_000));
 		System.out.println(gcd(102, 68));
 		
