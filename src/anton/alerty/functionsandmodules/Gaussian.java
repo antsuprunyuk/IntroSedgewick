@@ -6,6 +6,11 @@ public class Gaussian {
 		return Math.exp(-x*x/2) / Math.sqrt(Math.PI*2);
 	}
 	
+	public static double phi(double x, double m, double s) {
+		return phi((x-m)/s) / s;
+	}
+	
+	
 	public static double Phi(double z) {
 		if (z < - 8.0) return 0;
 		if (z > 8.0) return 1;

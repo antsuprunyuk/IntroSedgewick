@@ -1,4 +1,4 @@
-package anton.alerty.functionsandmodules;
+package anton.alerty.recursion;
 
 public class StdRandom {
 
