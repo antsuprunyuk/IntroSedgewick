@@ -17,22 +17,37 @@ public class ZoomPicture {
 				pic2.set(i, j, c);
 			}
 		}
-		
+		return pic2;
+	}
+	static public Picture increase(Picture pic, double s) {
+		int w = pic.width();
+		int h = pic.height();
+		int w2 = (int) (w / s);
+		int h2 = (int) (h / s);
+		Picture pic2 = new Picture(w2, h2);
+		for (int i = 0; i < w2; i++) {
+			for (int j = 0; j < h2; j++) {
+				Color c = pic.get((int)(i * s), (int)(j * s));
+				pic2.set(i,  j, c);
+			}
+		}
 		return pic2;
 	}
 	
 	public static void main(String[] args) {
 		Picture pic = new Picture(args[0]);
-		
+		//pic.show();
 		while(!StdIn.isEmpty()) {
 		double x = StdIn.readDouble();
 		double y = StdIn.readDouble();
 		double s = StdIn.readDouble();
 		Picture pic2 = cut(pic, x, y, s);
-		pic2.show();
-		
+		//pic2.show();
+		Picture pic3 = increase(pic2, s);
+		pic3.show();
+		pic3.save("Testing" + s + ".jpg");
 		
 		}
 	}
-
+//	0.58 0.28 .35
 }
