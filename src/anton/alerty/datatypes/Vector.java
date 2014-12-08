@@ -1,11 +1,16 @@
 package anton.alerty.datatypes;
 
-public class Vector {
+import java.util.Arrays;
+
+public class Vector implements Comparable<Vector> {
 
 	private final double[] coords;
 	
 	public Vector(double[] a) {
-		coords = a;
+		coords = new double[a.length];
+		for (int i = 0; i < a.length; i++) {
+			coords[i] = a[i];
+		}
 	}
 	
 	public Vector plus(Vector b) {
@@ -53,6 +58,13 @@ public class Vector {
 		return coords[i];
 	}
 	
+	@Override
+	public int compareTo(Vector other) {
+		if (this.magnitude() > other.magnitude()) return 1;
+		if (this.magnitude() < other.magnitude()) return -1;
+		else return 0;
+	}
+	
 	public String toString() {
 		String str = "Vector: [";
 		for (int i = 0; i < coords.length; i++) { 
@@ -62,23 +74,32 @@ public class Vector {
 		str += "]";
 		return str;
 	}
-	
-	
+	/*
+2 3 4
+0 1 1 
+22 22 11
+28 0 1
+7 6 6
+	 */
 	public static void main(String[] args) {
-		double[] c = {0.5, 0.2, 0.7};
-		double[] d = {0.1, 0.2, 1.0};
-		Vector v1 = new Vector(c);
-		Vector v2 = new Vector(d);
-		System.out.println(v1);
-		System.out.println(v2);
-		System.out.println(v1.plus(v2));
-		System.out.println(v1.minus(v2));
-		System.out.println(v1.times(2));
-		System.out.println(v1.dot(v2));
-		System.out.println(v1.magnitude());
-		System.out.println(v1.cartesian(1));
-		System.out.println(v1.cartesian(2));		
+		int k = Integer.parseInt(args[0]);
+		int N = Integer.parseInt(args[1]);
+		double[] a = new double[k];
+		Vector[] v = new Vector[N];
 		
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < k; j++) {
+				a[j] = StdIn.readDouble();
+			}
+			v[i] = new Vector(a);
+		}
+		for (int i = 0; i < v.length; i++) {
+			System.out.println(i + " " + v[i]);
+		}
+		Arrays.sort(v);
+		//System.out.println(Arrays.toString(v));
+		for (int i = 0; i < v.length; i++) {
+			System.out.println(i+" " + v[i]);
+		}
 	}
-
 }

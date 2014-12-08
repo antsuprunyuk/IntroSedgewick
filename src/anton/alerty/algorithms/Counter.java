@@ -1,6 +1,6 @@
-package anton.alerty.datatypes;
+package anton.alerty.algorithms;
 
-public class Counter {
+public class Counter implements Comparable<Counter> {
 
 	private final String name;
 	private final int maxCount;
@@ -40,5 +40,12 @@ public class Counter {
 		}
 		
 	}
+
+	@Override
+	public int compareTo(Counter o) {
+		return this.count - o.count;
+	}
+
+
 
 }
