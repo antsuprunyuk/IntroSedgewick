@@ -333,6 +333,24 @@ public final class StdStats {
         }
     }
 
+    public static Comparable mode(Comparable[] a) {
+    	int N = a.length;
+    	Merge.sort(a);
+    	int mode = 0;
+    	int tmp = 0;
+    	Comparable result = 0;
+    	for(int i = 0; i < N - 1; i++) {
+    		if (a[i].equals(a[i+1])) {
+    	    	if (a[i].equals(a[i+1])) System.out.println("!!!!!!!!!!!!!");
+    			tmp++;
+    			if (tmp > mode) {
+    				mode = tmp;
+    				result = a[i];
+    			}
+    		} else tmp = 0;
+    	}
+    	return result;
+    }
 
    /**
      * Test client.
@@ -341,6 +359,10 @@ public final class StdStats {
     public static void main(String[] args) {
     	int N = 50;
     	double[] b = new double[N+1];
+    	Integer[] test = {3, 2, 3, 2, 5, 3, 4, 2, 1, 3, 4};
+    	Double[] testD = {3.0, 2.0, 1.0, 3.0, 11.0, 2.0, 3.0};
+    	System.out.println(mode(test));
+    	System.out.println(mode(testD));
     	for (int i = 0; i <= N; i++) {
     		b[i] = Gaussian.phi(-4.0 + 8.0*i/N);
     	}
