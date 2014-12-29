@@ -39,6 +39,40 @@ public class Queue<Item> {
 		return N;
 	}
 	
+	public void delete(int k) {
+		Node tmp = first;
+		if (k >= N) {
+			System.out.println("there is no Kth element in the queue");
+			return;
+		}
+		if (k == 0) {
+			if (first == last) {
+				first = null;
+				last = null;
+			} else	first = first.next;
+		} else {
+			for (int i = 1; i < k; i++) {
+				tmp = tmp.next;
+			}
+			tmp.next = tmp.next.next;
+			N--;
+		}
+	}
+	
+	public boolean find(Queue<Item> q, Item item) {
+		
+		for (Node temp = first; temp != null; temp = temp.next) {
+			if ((temp.item).equals(item)) return true;
+		}
+		return false;
+	}
+	
+	public void printReverse(Node ongoing) {
+		if (ongoing == null) return;
+		printReverse(ongoing.next);
+		System.out.print(ongoing.item + " ");
+	}
+	
 	public static void main(String[] args) {
 		Queue<String> q = new Queue<String>();
 		while (!StdIn.isEmpty()) {
@@ -46,7 +80,11 @@ public class Queue<Item> {
 			if (!item.equals("-")) {
 				q.enqueue(item);
 			} else System.out.println(q.dequeue());	
-			System.out.println(q.length());
 		}
+		q.printReverse(q.first);
+		System.out.println(q.dequeue());
+		System.out.println(q.dequeue());
+		System.out.println(q.dequeue());
+		System.out.println(q.dequeue());
 	}
 }

@@ -50,6 +50,17 @@ public class StdRandom {
 			a[r] = t;
 		}
 	}
+	
+	public static void shuffle(String[] s) {
+		String t;
+		for (int i = 0; i < s.length; i++) {
+			int r = i + (int)(Math.random()*(s.length - i));
+			t = new String(s[i]);
+			s[i] = new String(s[r]);
+			s[r] = new String(t);
+		}
+	}
+	
 	public static void main(String[] args) {
 		int N = Integer.parseInt(args[0]);
 		double[] t = {.5, .3, .1, .1};

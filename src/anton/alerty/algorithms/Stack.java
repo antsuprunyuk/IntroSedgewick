@@ -1,6 +1,8 @@
 package anton.alerty.algorithms;
 
-public class Stack<Item> {
+import java.util.Iterator;
+
+public class Stack<Item> implements Iterable<Item> {
 
 	private Node first;
 	
@@ -30,6 +32,29 @@ public class Stack<Item> {
 		return first.item;
 	}
 	
+	@Override
+	public Iterator<Item> iterator() {
+		return new StackIterator();
+	}
+	
+	private class StackIterator implements Iterator<Item>{
+
+		Node current = first;
+		
+		@Override
+		public boolean hasNext() {
+			return (current != null);
+		}
+
+		@Override
+		public Item next() {
+			Item item = current.item;
+			current = current.next;
+			return item;
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		Stack s = new Stack();
 		while (!StdIn.isEmpty()) {
@@ -39,4 +64,5 @@ public class Stack<Item> {
 			} else System.out.println(s.pop());	
 		}
 	}
+
 }
